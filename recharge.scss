@@ -1,0 +1,16 @@
+body {
+    background-color:rgb(207, 207, 207);
+
+    .heading {
+        font-weight: 700;
+    }
+    input {
+        border: 1px solid rgb(225, 225, 225);
+    }:hover {
+        outline: none;
+    }
+    ::placeholder {
+        font-size: 15px;
+        color: rgb(190, 190, 190);
+    }
+}
