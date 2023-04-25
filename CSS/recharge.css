@@ -1,19 +1,8 @@
 body {
-  background-color: rgb(0, 67, 51);
-  /* background-color: rgb(207, 207, 207); */
-}
-
-.container {
-  background-color: rgb(1, 124, 95);
-
+  background-color: rgb(207, 207, 207);
 }
 body .heading {
   font-weight: 700;
-}
-body .headRow {
-  color: white;
-  background: rgb(0,255,196);
-background: linear-gradient(48deg, rgba(0,255,196,1) 0%, rgba(0,125,56,1) 100%);
 }
 body input {
   border: 1px solid rgb(225, 225, 225);
@@ -28,10 +17,4 @@ body ::-moz-placeholder {
 body ::placeholder {
   font-size: 15px;
   color: rgb(190, 190, 190);
-}
-
-.container .histo{
-  /* width: 100%; */
-  font-size: 12px;
-  overflow-x: auto;
 }

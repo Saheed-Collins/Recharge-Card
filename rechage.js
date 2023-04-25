@@ -28,6 +28,8 @@ let dd = today.getDate()
 let mm = today.getMonth()
 let yy = today.getFullYear();
 
+let modalBox = document.getElementById('modalBox')
+let modalText = document.getElementById('modaText')
 
 
 // console.log(network.value);
@@ -74,10 +76,31 @@ function GenerateP() {
 
 }
 
+// for modal
+ function displayModal(message, status) {
+        scroll (0,0)
+    
+        modalBox.style.display = 'flex'
+    
+        if (status) {
+            modalText.style.background = 'green'
+            
+        } else  {
+            modalText.style.background = 'red'
+        }
+        
+    }
+    function setBackDropToHidden(){
+        modalBox.style.display = 'none'
+      
+       }
 
 // to push into table
 function PushPinInfo() {
- 
+
+
+//  displayModal('Pin Saved', true)
+
     body.innerHTML = ''
     conte.forEach(function(element, index) {
     body.innerHTML += 
@@ -99,6 +122,7 @@ function PushPinInfo() {
     generatePin.value = ''
     amount.value = ''
 
+    
     })
 }
 function delet(index) {
@@ -109,29 +133,69 @@ function delet(index) {
 
 // for recharge card
 
-function recharge() {
+// function recharge() {
     
 
-    // conte.forEach(i=>{
-    //     console.log(i);
+//     // conte.forEach(i=>{
+//     //     console.log(i);
 
-    //     if (display.value == i.printStar) {
-    //         alert('Recharge Successful')
+//     //     if (display.value == i.printStar) {
+//     //         alert('Recharge Successful')
           
-    //         display.value = ''
-    //          } 
-    //         else if (display.value == i.printStar) {
-    //              alert ('pin Used')  
-    //         } return;
-    // })
+//     //         display.value = ''
+//     //          } 
+//     //         else if (display.value == i.printStar) {
+//     //              alert ('pin Used')  
+//     //         } return;
+//     // })
+//     let seen = false;
+//     conte.forEach(i=>{
+//         console.log(i);
+
+//         if (display.value == i.printStar) {
+//             alert('Recharge Successful')
+//             seen = true
+            
+//             conte.forEach ((i)=>{
+//                 i.stats = 'Used'
+//                 PushPinInfo()
+//                 seen = true
+//                 display.value = ''
+//             } ) 
+
+//         } if (seen) {
+//             alert ('pin Used')  
+//         } else  {
+//                  alert ('pin Used')  
+//                 //  display.value = ''    
+//             } 
+//     })
+
+   
+// }
+function recharge() {
+
+    let find =conte.find((a)=>a.printStar===display.value)
+    if (!find) {
+        displayModal('invalid pin', false)
+    }
+    if (find.status) {
+        displayModal('Pin Used', false)
+        return
+    }
+   
     let seen = false;
     conte.forEach(i=>{
-        console.log(i);
+        // console.log(i);
 
         if (display.value == i.printStar) {
-            alert('Recharge Successful')
-            seen = true
+
+            // recharge.onclick = function() {
+            //     modalM.style.display = "block"
+            // }
             
+            seen = true
+            displayModal('Pin Recharged', true)
             conte.forEach ((i)=>{
                 i.stats = 'Used'
                 PushPinInfo()
@@ -147,7 +211,7 @@ function recharge() {
             } 
     })
 
-   
+    
 }
 
 
